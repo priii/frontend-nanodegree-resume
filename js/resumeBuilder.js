@@ -1,105 +1,45 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
- // $("#main").append(" Priya Balasubramanian");
-//  var awesomeThoughts = " I am Priya and i am awesome";
-// console.log(awesomeThoughts);
-// var funThoughts = awesomeThoughts.replace("awesome", "Funny");
-// $("#main").append(funThoughts);
-//var name = "Priya Balasubramanian";
-//var formattedName = HTMLheaderName.replace("%data%",name);
-//var role =" Front end web Developer";
-//var formattedRole = HTMLheaderRole.replace("%data%",role);
-//$("#header").append(formattedName);
-//$("#header").append(formattedRole);
-
-// var skills = ["Programmin", "Painting", "pencilsketch"];
-// $("#main").append(skills);
-// $("#main").append(skills.length);
-//var bio = {
-  //"name" : "Priya",
-  //"Role" : "Student",
-  //"Contact": {
-    //"mobile" :"7345480874",
-    //"email" : "get.priyab@gmail.com"
-  //},
-  //"message" : "Hello everyone",
-  //"pic" :"images/fry.jpg",
-  //"skills" : ["Programmin", "Painting", "pencilsketch"]
-//}
-
- //$("#main").append(bio.name);
-//$("#main").append(bio.Role);
-//$("#main").append(bio.Contact);
-//$("#main").append(bio.message);
-//$("#main").append(bio.pic);
-//$("#main").append(bio.skills);
-
-//var work = {};
-  //work.currentJob = "Nil";
-  //work.employer = "Nil";
-  //work.city ="Mountain View";
-
-  //$("#main").append(work.currentJob);
-  //$("#main").append(work.employer);
-
-  //var education = {};
-   //education["city"] ="Tanjore";
-    //education["lastSchool"] = "Sastra University";
-   //education["yearPassed"]  = "2011-2013";
-   //education["city"] ="Tanjore";
-   //$("#main").append(education.lastSchool);
-    //$("#main").append(work["city"]);
 var bio = {
-   "name" : "Priya Balasubramanian",
-   "role" : "Student",
-   "contacts" : {
-      "mobile" : "743-548-0874",
-      "email"  : "get.priyab@gmail.com",
-      "github"  : "priii",
-      "location" : "Mountain view"
-   },
-   "welcomeMessage" : "Hello everyone",
-   "skills" :["Painting", "Pencil sketch", "Crafts"],
-   "bioPic" : "images/fry.jpg"
+    "name" : "Priya Balasubramanian",
+    "role" : "Student",
+    "contacts" : {
+        "mobile" : "743-548-0874",
+        "email"  : "get.priyab@gmail.com",
+        "github"  : "priii",
+        "location" : "Mountain view"
+        },
+    "welcomeMessage" : "Hello everyone !",
+    "skills" :["Painting", "Pencil sketch", "Awesomeness"],
+    "bioPic" : "images/pri.jpg"
  };
-   $("#header").append(HTMLheaderName.replace("%data%",bio.name));
-   //$("#header").append(HTMLskillsStart.replace("%data%",bio.skills));
-   //$("#header").append(HTMLskills.replace("%data%",bio.skills));
-   if (bio.skills.length > 0){
-     $("#header").append(HTMLskillsStart);
-     var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
-     $("#skills").append(formattedSkill);
-     formattedSkill = HTMLskills.replace("%data%",bio.skills[1]);
-     $("#skills").append(formattedSkill);
-     formattedSkill = HTMLskills.replace("%data%",bio.skills[2]);
-     $("#skills").append(formattedSkill);
-   }
 
 var education = {
-
-  "schools" :[{
+    "schools" :[
+      {
     "name" : "Sastra University",
     "city" : "Tanjore, Tamil Nadu, India",
     "degree" : "Masters",
     "Major"  : ["Biz Administration"],
     "dates" : 2013
-  },
-  {
+    },
+    {
     "name" : "SFR College",
     "city" : "Sivakasi, Tamil Nadu, India",
     "degree" : "BSC",
     "Major"  : ["CS"],
-    "dates" : 2013
-  }
-],
-"onlineCourses": [
-  {
+    "dates" : 2011
+    }],
+ "onlineCourses": [
+   {
     "title": "JavaScript Crash Course",
     "School" :"Udacity",
     "dates":2017
-  }
-]
+    },
+    {
+    "title": "HTML and CSS ",
+    "School" :"Udacity",
+    "dates":2017
+    }
+  ]
 };
 
 var work = {
@@ -107,44 +47,72 @@ var work = {
       "employer" :"Bank Of Baroda",
       "title" : "Institutional Sales",
       "dates" : "March 2013-2014",
-      "description": "Builds a trusted relationship in the business unit. Participating in meetings with the clients. Communicating with Institute Stakeholders to ensure awarness of their investment in our  bank's fund."
+      "description": "Builds a trusted relationship in the business unit. Participating in meetings with the clients. Communicating with Institute Stakeholders to ensure awarness of their investment in our  bank's fund.",
+      "url" : "http://www.barodapioneer.in/default.aspx"
     },
   {
     "employer" :"Mata securities",
     "title" : "Portfolio Accountant",
     "dates" : "March 2012-2013",
-    "description" : "Primarily responsible for all aspects of day-to-day accounting for one or more assigned mutual funds and/or institutional funds."
+    "description" : "Primarily responsible for all aspects of day-to-day accounting for one or more assigned mutual funds and/or institutional funds.",
+    "url": "http://www.matasec.com/"
   }]
 };
-for (job in work.jobs)
+
+
+var projects ={
+  "projects" : [
+     {
+      "title" : "Build a Portfolio",
+      "dates" : "2016",
+      "Description" : "Created a Portfolio using Html and CSS "
+     },
+     {
+     "title" : "Animal Trading Card",
+    "dates" : "2016",
+    "Description" : "Created Animal Trading Card using Html and CSS "
+     }
+  ]
+};
+
+
+$("#header").append(HTMLheaderName.replace("%data%",bio.name));
+$("#header").append(HTMLheaderRole.replace("%data%",bio.role));
+$("#topContacts").append(HTMLmobile.replace("%data%",bio.contacts.mobile));
+$("#topContacts").append(HTMLemail.replace("%data%",bio.contacts.email));
+$("#topContacts").append(HTMLgithub.replace("%data%",bio.contacts.github));
+$("#topContacts").append(HTMLlocation.replace("%data%",bio.contacts.location));
+$("#header").append(HTMLbioPic.replace("%data%",bio.bioPic));
+$("#header").append(HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage));
+
+if (bio.skills.length > 0){
+  $("#header").append(HTMLskillsStart);
+  var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
+  $("#skills").append(formattedSkill);
+  formattedSkill = HTMLskills.replace("%data%",bio.skills[1]);
+  $("#skills").append(formattedSkill);
+  formattedSkill = HTMLskills.replace("%data%",bio.skills[2]);
+  $("#skills").append(formattedSkill);
+}
+
 //displayWork()
-{
+function displayWork() {
+ for (job in work.jobs)
+  {
   $("#workExperience").append(HTMLworkStart);
   var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
   var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
   var formattedEmployerTitle = formattedEmployer + formattedTitle;
   $(".work-entry:last").append(formattedEmployerTitle);
   var formattedDates = HTMLworkDates.replace("%data%",work.jobs[job].dates);
-    $(".work-entry:last").append(formattedDates);
-    var formattedDescription = HTMLworkDescription.replace("%data%",work.jobs[job].description);
-    $(".work-entry:last").append(formattedDescription);
+  $(".work-entry:last").append(formattedDates);
+  var formattedDescription = HTMLworkDescription.replace("%data%",work.jobs[job].description);
+  $(".work-entry:last").append(formattedDescription);
 }
+}
+displayWork();
 
-var projects ={
-  "projects" : [
-    {
-      "title" : "Build a Portfolio",
-      "dates" : "2016",
-      " Description" : "Created a Portfolio using Html and CSS "
 
-    },
-    {
-      "title" : "Animal Trading Card",
-      "dates" : "2016",
-      " Description" : "Created Animal Trading Card using Html and CSS "
-    }
-  ]
-};
 projects.display = function(){
   for (project in projects.projects){
     $("#projects").append(HTMLprojectStart);
@@ -157,6 +125,38 @@ projects.display = function(){
   };
 }
   projects.display ();
+
+  education.display = function(){
+    for (edu in education.schools){
+      $("#education").append(HTMLschoolStart);
+      var formattedSchoolName = HTMLschoolName.replace ("%data%",education.schools[edu].name);
+      var formattedschoolMajor = HTMLschoolMajor.replace ("%data%",education.schools[edu].Major);
+      var formattedNameMajor = formattedSchoolName + formattedschoolMajor;
+      $(".education-entry").append(formattedNameMajor);
+      var formattedDegree = HTMLschoolDegree.replace ("%data%",education.schools[edu].degree);
+      $(".education-entry").append(formattedDegree);
+      var formattedschoolLocation = HTMLschoolLocation.replace ("%data%",education.schools[edu].city);
+      $(".education-entry").append(formattedschoolLocation);
+      var formattedschoolDates = HTMLschoolDates.replace ("%data%",education.schools[edu].dates);
+      $(".education-entry").append(formattedschoolDates);
+    };
+  }
+  education.display();
+
+  online.display = function(){
+    for (oc in education.onlineCourses){
+      $("#education").append(HTMLschoolStart);
+      var formattedOclass = HTMLonlineSchool .replace ("%data%",education.onlineCourses[oc].School);
+      var formattedOtitle = HTMLonlineTitle.replace ("%data%",education.onlineCourses[oc].title);
+      var formattedOclassTitle = formattedOclass+ formattedOtitle;
+      $(".education-entry").append(formattedOclassTitle);
+      var formattedOdates = HTMLonlineDates.replace ("%data%",education.onlineCourses[oc].dates);
+      $(".education-entry").append(formattedOdates);
+    };
+  }
+  online.display();
+
+
 
 
 $(document).click(function(loc){
@@ -173,3 +173,8 @@ $(document).click(function(loc){
   //return name[0] + " " + name[1];
 //}
 //$("#main").append(internationalizeButton);
+$(document).click(function(loc){
+    console.log(loc.pagex, loc.pagey);
+});
+
+$("#mapDiv").append(googleMap);
