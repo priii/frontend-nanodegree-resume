@@ -32,12 +32,14 @@ var education = {
    {
     "title": "JavaScript Crash Course",
     "School" :"Udacity",
-    "dates":2017
+    "dates":2017,
+    "url" : "https://www.udacity.com/"
     },
     {
     "title": "HTML and CSS ",
     "School" :"Udacity",
-    "dates":2017
+    "dates":2017,
+    "url" : "https://www.udacity.com/"
     }
   ]
 };
@@ -48,14 +50,16 @@ var work = {
       "title" : "Institutional Sales",
       "dates" : "March 2013-2014",
       "description": "Builds a trusted relationship in the business unit. Participating in meetings with the clients. Communicating with Institute Stakeholders to ensure awarness of their investment in our  bank's fund.",
-      "url" : "http://www.barodapioneer.in/default.aspx"
+      "url" : "http://www.barodapioneer.in/default.aspx",
+      "city" : "Chennai,Tn,India"
     },
   {
     "employer" :"Mata securities",
     "title" : "Portfolio Accountant",
     "dates" : "March 2012-2013",
     "description" : "Primarily responsible for all aspects of day-to-day accounting for one or more assigned mutual funds and/or institutional funds.",
-    "url": "http://www.matasec.com/"
+    "url": "http://www.matasec.com/",
+    "city" : "Chennai,Tn,India"
   }]
 };
 
@@ -65,12 +69,14 @@ var projects ={
      {
       "title" : "Build a Portfolio",
       "dates" : "2016",
-      "Description" : "Created a Portfolio using Html and CSS "
+      "Description" : "Created a Portfolio using Html and CSS ",
+    //  "image" :[ "images/blog.png", ]
      },
      {
      "title" : "Animal Trading Card",
     "dates" : "2016",
-    "Description" : "Created Animal Trading Card using Html and CSS "
+    "Description" : "Created Animal Trading Card using Html and CSS ",
+    //"image" :[ "images/a.png" ]
      }
   ]
 };
@@ -108,7 +114,9 @@ function displayWork() {
   $(".work-entry:last").append(formattedDates);
   var formattedDescription = HTMLworkDescription.replace("%data%",work.jobs[job].description);
   $(".work-entry:last").append(formattedDescription);
-}
+  var formattedLocation = HTMLworkLocation.replace("%data%",work.jobs[job].city);
+  $(".work-entry:last").prepend(formattedLocation);
+  }
 }
 displayWork();
 
@@ -122,39 +130,63 @@ projects.display = function(){
     $(".project-entry:last").append(formattedDates);
     var formattedDescription = HTMLprojectDescription.replace ("%data%",projects.projects[project].Description);
     $(".project-entry:last").append(formattedDescription);
+  //  var formattedImage = HTMLprojectImage.replace ("%data%",projects.projects[project].image);
+    //  $(".project-entry:last").append(formattedImage);
   };
 }
-  projects.display ();
+projects.display ();
 
-  education.display = function(){
-    for (edu in education.schools){
+education.display = function(){
+    for(edu in education.schools){
       $("#education").append(HTMLschoolStart);
-      var formattedSchoolName = HTMLschoolName.replace ("%data%",education.schools[edu].name);
-      var formattedschoolMajor = HTMLschoolMajor.replace ("%data%",education.schools[edu].Major);
-      var formattedNameMajor = formattedSchoolName + formattedschoolMajor;
-      $(".education-entry").append(formattedNameMajor);
-      var formattedDegree = HTMLschoolDegree.replace ("%data%",education.schools[edu].degree);
-      $(".education-entry").append(formattedDegree);
-      var formattedschoolLocation = HTMLschoolLocation.replace ("%data%",education.schools[edu].city);
-      $(".education-entry").append(formattedschoolLocation);
-      var formattedschoolDates = HTMLschoolDates.replace ("%data%",education.schools[edu].dates);
-      $(".education-entry").append(formattedschoolDates);
+      var formattedSchoolName = HTMLschoolName.replace("%data%",education.schools[edu].name);
+      var formattedSchoolDegree = HTMLschoolDegree.replace("%data%",education.schools[edu].degree);
+      var formattedSchoolNameDegree = formattedSchoolName + formattedSchoolDegree;
+      $(".education-entry:first").append(formattedSchoolNameDegree);
+      var formattedSchoolDates = HTMLschoolDates.replace("%data%",education.schools[edu].dates);
+      $(".education-entry:first").append(formattedSchoolDates);
+      var formattedSchoolLocation = HTMLschoolLocation.replace("%data%",education.schools[edu].city);
+      $(".education-entry:first").append(formattedSchoolLocation);
+      var formattedSchoolMajor = HTMLschoolMajor.replace("%data%",education.schools[edu].Major);
+      $(".education-entry:first").append(formattedSchoolMajor);
+    }
+  }
+education.display();
+
+/*education.display = function(){
+    for(edu in education.schools){
+      $("#education").append(HTMLschoolStart);
+      var formattedSchoolName = HTMLschoolName.replace("%data%",education.schools[edu].name);
+      var formattedSchoolDegree = HTMLschoolDegree.replace("%data%",education.schools[edu].degree);
+      var formattedSchoolNameDegree = formattedSchoolName + formattedSchoolDegree;
+      $(".education-entry").append(formattedSchoolNameDegree);
+      var formattedSchoolDates = HTMLschoolDates.replace("%data%",education.schools[edu].dates);
+      $(".education-entry").append(formattedSchoolDates);
+      var formattedSchoolLocation = HTMLschoolLocation.replace("%data%",education.schools[edu].city);
+      $(".education-entry").append(formattedSchoolLocation);
+      var formattedSchoolMajor = HTMLschoolMajor.replace("%data%",education.schools[edu].Major);
+      $(".education-entry").append(formattedSchoolMajor);
     };
   }
-  education.display();
+  education.display ();
 
-  online.display = function(){
-    for (oc in education.onlineCourses){
-      $("#education").append(HTMLschoolStart);
-      var formattedOclass = HTMLonlineSchool .replace ("%data%",education.onlineCourses[oc].School);
-      var formattedOtitle = HTMLonlineTitle.replace ("%data%",education.onlineCourses[oc].title);
-      var formattedOclassTitle = formattedOclass+ formattedOtitle;
-      $(".education-entry").append(formattedOclassTitle);
-      var formattedOdates = HTMLonlineDates.replace ("%data%",education.onlineCourses[oc].dates);
-      $(".education-entry").append(formattedOdates);
-    };
-  }
-  online.display();
+  function displayOc () {
+      $("#education").append(HTMLonlineClasses);
+      for (oc in education.onlineCourses) {
+          $("#education").append(HTMLschoolStart);
+          var formattedOnlineTitle = HTMLonlineTitle.replace("%data%",education.onlineCourses[oc].title);
+          var formattedOnlineSchool = HTMLonlineSchool.replace("%data%",education.onlineCourses[oc].School);
+          formattedOnlineTitleSchool = formattedOnlineTitle + formattedOnlineSchool;
+          $(".education-entry").append(formattedOnlineTitleSchool);
+          var formattedOnlineDates =  HTMLonlineDates.replace("%data%",education.onlineCourses[oc].dates);
+          $(".education-entry").append(formattedOnlineDates);
+          var formattedOnlineUrl = HTMLonlineURL.replace("%data%",education.onlineCourses[oc].url);
+          $(".education-entry").append(formattedOnlineUrl);
+        };
+      }
+displayOc();*/
+
+
 
 
 
