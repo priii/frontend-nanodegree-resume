@@ -132,7 +132,7 @@ projects.display = function(){
     $(".project-entry:last").append(formattedDescription);
   //  var formattedImage = HTMLprojectImage.replace ("%data%",projects.projects[project].image);
     //  $(".project-entry:last").append(formattedImage);
-  };
+  }
 }
 projects.display ();
 
@@ -150,6 +150,19 @@ education.display = function(){
       var formattedSchoolMajor = HTMLschoolMajor.replace("%data%",education.schools[edu].Major);
       $(".education-entry:first").append(formattedSchoolMajor);
     }
+
+    $("#education").append(HTMLonlineClasses);
+    for (oc in education.onlineCourses) {
+        $("#education").append(HTMLschoolStart);
+        var formattedOnlineTitle = HTMLonlineTitle.replace("%data%",education.onlineCourses[oc].title);
+        var formattedOnlineSchool = HTMLonlineSchool.replace("%data%",education.onlineCourses[oc].School);
+        formattedOnlineTitleSchool = formattedOnlineTitle + formattedOnlineSchool;
+        $(".education-entry:last").append(formattedOnlineTitleSchool);
+        var formattedOnlineDates =  HTMLonlineDates.replace("%data%",education.onlineCourses[oc].dates);
+        $(".education-entry:last").append(formattedOnlineDates);
+        var formattedOnlineUrl = HTMLonlineURL.replace("%data%",education.onlineCourses[oc].url);
+        $(".education-entry:last").append(formattedOnlineUrl);
+      }
   }
 education.display();
 
@@ -168,20 +181,20 @@ education.display();
       $(".education-entry").append(formattedSchoolMajor);
     };
   }
-  education.display ();
+  education.display ();*/
 
-  function displayOc () {
+  /*function displayOc () {
       $("#education").append(HTMLonlineClasses);
       for (oc in education.onlineCourses) {
           $("#education").append(HTMLschoolStart);
           var formattedOnlineTitle = HTMLonlineTitle.replace("%data%",education.onlineCourses[oc].title);
           var formattedOnlineSchool = HTMLonlineSchool.replace("%data%",education.onlineCourses[oc].School);
           formattedOnlineTitleSchool = formattedOnlineTitle + formattedOnlineSchool;
-          $(".education-entry").append(formattedOnlineTitleSchool);
+          $(".education-entry:last").append(formattedOnlineTitleSchool);
           var formattedOnlineDates =  HTMLonlineDates.replace("%data%",education.onlineCourses[oc].dates);
-          $(".education-entry").append(formattedOnlineDates);
+          $(".education-entry:last").append(formattedOnlineDates);
           var formattedOnlineUrl = HTMLonlineURL.replace("%data%",education.onlineCourses[oc].url);
-          $(".education-entry").append(formattedOnlineUrl);
+          $(".education-entry:last").append(formattedOnlineUrl);
         };
       }
 displayOc();*/
