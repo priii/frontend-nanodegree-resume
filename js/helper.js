@@ -46,6 +46,7 @@ var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolUrl = '<br><a href="#">%data%</a>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';
@@ -130,7 +131,7 @@ function initializeMap() {
         // as described in the Udacity FEND Style Guide:
         // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
         education.schools.forEach(function(school) {
-            locations.push(school.city);
+            locations.push(school.location);
         });
 
         // iterates through work locations and appends each location to
@@ -138,7 +139,7 @@ function initializeMap() {
         // as described in the Udacity FEND Style Guide:
         // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
         work.jobs.forEach(function(job) {
-            locations.push(job.city);
+            locations.push(job.location);
         });
 
         return locations;
@@ -239,7 +240,7 @@ window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function(e) {
 //Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+ map.fitBounds(mapBounds);
+});
